@@ -1,0 +1,17 @@
+class Solution {
+    //Function to check if the linked list has a loop.
+    public static boolean detectLoop(Node head){
+        //as we are making every node to point to a
+        //dummy node when loop is present its next is
+        //is already pointing to dummy
+        Node temp = new Node(-1);
+        Node next=null;
+        while(head!=null){
+            if(head.next==temp)return true;
+            next  = head.next;
+            head.next = temp;
+            head = next;
+        }
+        return false;
+    }
+}
