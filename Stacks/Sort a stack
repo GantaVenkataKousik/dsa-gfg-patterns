@@ -1,0 +1,27 @@
+
+class GfG{
+    
+    private static void insertIntoCorrectPosition(Stack<Integer> s,int element){
+        if(s.size()==0 || s.peek()<element){
+            s.push(element);
+            return ;
+        }
+        int ele = s.pop();
+        insertIntoCorrectPosition(s,element);
+        s.push(ele);
+    }
+    
+    private static void reverse(Stack<Integer> s){
+        if(s.size()==0)return ;
+        int ele = s.pop();
+        reverse(s);
+        insertIntoCorrectPosition(s,ele);
+    }
+    
+    
+	public Stack<Integer> sort(Stack<Integer> s)
+	{
+		reverse(s);
+		return s;
+	}
+}
