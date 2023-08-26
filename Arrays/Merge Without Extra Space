@@ -1,0 +1,76 @@
+
+
+//User function Template for Java
+
+class Solution
+{
+    //Function to merge the arrays.
+    private static void swapIfGreater(long[] a,long[] b,int idx1,int idx2){
+            if(a[idx1]>b[idx2]){
+                a[idx1] = b[idx2]^a[idx1]^(b[idx2]=a[idx1]);
+            }
+    }
+    
+    public static void merge(long a[], long b[], int m, int n) 
+    {
+        //Gap Method
+        //until the gap is 1 fix that pointers accoeding to the gap
+        //ans swap elemetns in that gap
+        int len = n+m;
+        int gap = (len/2)+(len%2);
+        while(gap>0){
+            int left = 0;
+            int right = left + gap;
+            while(right<len){
+                //arr1 and arr2
+                if(left<m && right>=m){
+                        swapIfGreater(a,b,left,right-m);
+                }
+                //arr2 and arr2
+                else if(left>=m){
+                        swapIfGreater(b,b,left-m,right-m);
+                }
+                //arr1 and arr1
+                else{
+                    swapIfGreater(a,a,left,right);
+                }
+                left++;
+                right++;
+            }
+            if(gap==1)break;
+            gap = (gap/2)+(gap%2);
+        }
+        
+        
+    }
+}
+
+///2nd method :
+class Solution{
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // first method:
+        // Time complexity - Math.max(O(min(n,m)) + O(nlogn) + O(mlogm))
+        int fp = m-1 , sp = m;
+        while(fp>=0 && sp<(m+n)){
+            if(nums1[fp]>nums2[sp%m]){
+                int temp = nums1[fp];
+                nums1[fp] = nums2[sp%m];
+                nums2[sp%m] = temp;
+                fp--;
+                sp++;
+            }
+            else{
+                break;
+            }
+        }
+        
+        if(m==0){
+            for(int i=0 ; i<n  ; i++){
+                nums1[i] = nums2[i];
+            }
+        }
+         //sorting the individual arrays
+         Arrays.sort(nums1);
+         return ;
+     } 
+}
