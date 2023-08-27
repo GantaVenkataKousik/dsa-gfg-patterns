@@ -1,0 +1,44 @@
+
+class Solution {
+    
+    private static int noOfPar(int[] A,int min){
+        int par = 0;
+        int sum = 0;
+        for(int i=0 ; i<A.length ; i++){
+            if(sum+A[i] <= min){
+                sum += A[i];
+            }
+            else{
+                par++;
+                sum = A[i];
+            }
+        }
+        par++;
+        return par;
+    }
+
+    
+    static int splitArray(int[] A , int n, int k) {
+
+        int min = Integer.MIN_VALUE;
+        int sum = 0 ;
+        for(int i=0 ; i<n  ; i++){
+            sum += A[i];
+            min = Math.max(A[i],min);
+        }
+        
+        int low = min , high = sum , mid = 0 , ans = -1;
+        while(low <= high){
+            mid = low + (high - low)/2;
+            int par = noOfPar(A,mid);
+            if(par>k){
+                low = mid + 1;
+            }
+            else{
+                high =  mid -1;
+            }
+        }
+        return low;
+
+    }
+};
