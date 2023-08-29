@@ -1,0 +1,24 @@
+class Solution
+{ 
+    
+    
+    private static void insert(Stack<Integer> s,int element){
+        if(s.size()==0){
+            s.push(element);
+            return ;
+        }
+        int ele = s.pop();
+        insert(s,element);
+        s.push(ele);
+        return ;
+    }
+
+    static void reverse(Stack<Integer> s)
+    {
+        if(s.size()==0)return ;
+        int element = s.pop();
+        reverse(s);
+        insert(s,element);
+        return ;
+    }
+}
