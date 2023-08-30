@@ -1,0 +1,54 @@
+
+class Solution
+{
+    //Function to sort an array using quick sort algorithm.
+    static void quickSort(int arr[], int low, int high)
+    {
+        if(low < high){
+            int par = partition(arr,low,high);
+            //my low element is placed at its correct position
+            quickSort(arr,low,par-1);
+            quickSort(arr,par+1,high);
+        }
+    }
+    // Choose the last element as pivot
+    static int partition(int arr[], int low, int high)
+    {
+        int pivot = arr[high]; 
+        int i = low ;
+        
+        for (int j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                
+                // Swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+            }
+        }
+        
+        // Swap arr[i+1] and arr[high] (pivot)
+        int temp = arr[i];
+        arr[i] = arr[high];
+        arr[high] = temp;
+        
+        return i ;
+    } 
+ static int partition(int arr[], int low, int high)
+    {
+        //selecting my first element as pivot
+        // int mid = low + (high - low)/2;
+        int pivot = arr[low];
+        int i=low , j = high;
+        while(i<j){
+            while(i<=high && arr[i]<=pivot)i++;
+            while(j>=low && arr[j]>pivot)j--;
+            if(i<j){
+                arr[i] = arr[j] ^ arr[i] ^ (arr[j] = arr[i]);
+            }
+        }
+        arr[low] = arr[j] ^ arr[low] ^ (arr[j] = arr[low]);
+        return j;
+    } 
+}
