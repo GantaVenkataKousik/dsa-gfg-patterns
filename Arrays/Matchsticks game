@@ -1,0 +1,16 @@
+class Solution {
+    static int matchGame(Long N) {
+        // if the match stikcs are in the mutlilpe of 5 A wins
+        //ex :
+         // 5 matchSticks
+         //A - atmost 4 remaining will be picked by B
+        //so A lost
+        
+        //if n is a mutliple of 5 then B will pick in such a way 
+        //A will remain with 5 match sticks at last
+        //otherwise A will pick no of matchsticks so that B will 
+        //remain with 5 mutliple no of matchsticks
+        
+        return (N%5==0)?-1:(int)(N%5);
+    }
+};
