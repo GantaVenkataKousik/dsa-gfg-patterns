@@ -1,0 +1,70 @@
+class GfG
+{
+    
+    public static Node quickSort(Node node)
+    {
+        //Your code here
+        Node curr = node;
+        ArrayList<Integer>  l = new ArrayList<>();
+        while(curr!=null){
+            l.add(curr.data);
+            curr = curr.next;
+        }
+        int[] arr  = new int[l.size()];
+        for(int i=0 ; i<l.size() ; i++){
+            arr[i] = l.get(i);
+        }
+        quicksort(arr,0,l.size()-1);
+        Node dummy = new Node(-1);
+        Node temp = dummy;
+  
+        for(int i=0 ; i<arr.length ; i++){
+            temp.next = new Node(arr[i]);
+            temp = temp.next;
+            }
+        return dummy.next;
+        
+    }
+    
+   static void quicksort(int[] arr,int low,int 
+	high){
+	    if(low>high){
+	        return ;
+	    }
+	    int pivot = partition(arr,low,high);
+	       quicksort(arr,low,pivot-1);
+	       quicksort(arr,pivot+1,high);
+	}
+	static void swap(int[] arr , int i,int j){
+	    int temp = arr[i];
+	    arr[i] = arr[j];
+	    arr[j] = temp;
+	}
+	static int partition(int[] arr,int low,int high){
+	    int i = low , j = high;
+	    int pivot = arr[low];
+	    while(i<j){
+	        while(arr[i]<=pivot && i<high){
+	            i++;
+	            
+	           // System.out.println(i+" "+j + "<-->"+"arr[i] : "+arr[i]);
+	        }
+	        while(arr[j]>pivot && j>=low){
+	            j--;
+	            
+	           // System.out.println(i+" "+j + "<-->"+"arr[j] : "+arr[j]);
+	        }
+	        
+	        if(i<j){
+	           // System.out.println(i+" "+j);
+	            swap(arr,i,j);
+	        }
+        // System.out.println(Arrays.toString(arr));
+	    }
+	    
+	    swap(arr,low,j);
+	    
+        // System.out.println(Arrays.toString(arr));
+        return j;
+}
+}
