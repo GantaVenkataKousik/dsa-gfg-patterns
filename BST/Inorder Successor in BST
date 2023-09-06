@@ -1,0 +1,24 @@
+class Solution
+{
+    private static void inOrder(Node root,ArrayList<Node> list){
+        if(root != null){
+            inOrder(root.left,list);
+            list.add(root);
+            inOrder(root.right,list);
+        }
+    }
+    
+    // returns the inorder successor of the Node x in BST (rooted at 'root')
+	public Node inorderSuccessor(Node root,Node x)
+         {
+          //add code here.
+          ArrayList<Node> list = new ArrayList<>();
+          inOrder(root,list);
+          for(int i=0 ; i<list.size() ; i++){
+              if(list.get(i) == x){
+                  if(i!=list.size()-1)return list.get(i+1);
+              }
+          }
+          return null;
+         }
+}
