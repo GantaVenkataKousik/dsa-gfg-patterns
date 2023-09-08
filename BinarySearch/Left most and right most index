@@ -1,0 +1,35 @@
+
+class Solution {
+    
+    public pair indexes(long v[], long x)
+    {
+        // Your code goes here
+        pair ans = new pair(-1,-1);
+        int index = getIndex(v,x,-1);
+        if(index==-1)return ans;
+        int lastIdx = getIndex(v,x,1);
+        ans.first = index;
+        ans.second = lastIdx;
+        return ans;
+    }
+    static int getIndex(long v[],long target,int whichIdx){
+        int s = 0  ,e = v.length -1;
+        int idx = -1;
+        while(s<=e){
+            int mid = s + (e-s)/2;
+            if(target==v[mid]){
+                idx = mid;
+                if(whichIdx == -1){
+                    e=mid-1;
+                }
+                else{
+                    s= mid+1;
+                }
+            }
+            else if(target>v[mid])s=mid+1;
+            else e=mid-1;
+        }
+        return idx;
+    }
+    
+}
