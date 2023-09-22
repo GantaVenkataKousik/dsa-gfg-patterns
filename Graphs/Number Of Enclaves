@@ -1,0 +1,92 @@
+
+
+// User function Template for Java
+class pair{
+        int x;
+        int y;
+        pair(int i,int j){
+            x= i;
+            y = j;
+        }
+}
+
+
+class Solution {
+
+    private static void makringBoundaries(int[][] grid,Queue<pair> q,boolean[][] visited){
+        
+        int  n = grid.length , m = grid[0].length; 
+        
+
+        //all the four directions
+        int[] dx = {0,0,1,-1};
+        int[] dy = {1,-1,0,0};
+        
+        
+        //while the queue is empty
+        //apply BFS to calcualte the minutes requied 
+        while(!q.isEmpty()){
+            int size = q.size();
+            for(int k=0 ; k<size ; k++){
+
+                pair p1 = q.poll();
+                
+                int x = p1.x;
+                int y = p1.y;
+                for(int i=0 ; i<4 ; i++){
+                    int newX = x + dx[i];
+                    int newY = y + dy[i];
+                if (newX >= 0 && newY >= 0 && newX < n && newY < m && grid[newX][newY] == 1 && visited[newX][newY] == false) {
+                        visited[newX][newY] = true;
+                        pair p = new pair(newX, newY);
+                        q.add(p);
+                    
+                }
+
+            }
+      
+        }
+        }
+        
+        return ;
+    }
+    
+
+    int numberOfEnclaves(int[][] grid) {
+        int n = grid.length , m = grid[0].length;
+        boolean visited[][] = new boolean[n][m];
+        
+        Queue<pair> q = new LinkedList<>();
+        
+       
+        for(int i=0 ; i<n ; i++){
+            for(int j=0 ; j<m  ; j++){
+                if(i==0 || j==0 || i==n-1 || j ==m-1){
+                    if(grid[i][j] == 1){
+                        visited[i][j] = true;
+                        pair p = new pair(i,j);
+                        q.add(p);
+                    }
+                }
+            }
+        }
+        
+        //now my queue contians all the land at the boundarie
+        //so that i can include that land that connects to the boundaries
+        //and mark them as visited
+        makringBoundaries(grid,q,visited);
+        
+         int cnt = 0 ;
+        for(int i=0 ; i<n ; i++){
+            for(int j=0 ; j<m ; j++){
+                //check for unvisited marked land cells
+                //that measn they are not connected in 
+                //any way to the boundary
+                if(grid[i][j] == 1 && visited[i][j] == false){
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+    }
+}
