@@ -1,0 +1,60 @@
+
+
+//User function Template for Java
+
+/*
+Structure of Node class is:
+
+class Node {
+    int data;
+    Node left, right;
+    
+    public Node(int data){
+        this.data = data;
+    }
+}
+*/
+
+class Solution
+{
+    
+    private static void inOrder(Node root,HashMap<Integer,Integer> map,Node parent){
+        if(root!=null){
+            map.put(root.data,parent!=null?parent.data:-1);
+            inOrder(root.left,map,root);
+            inOrder(root.right,map,root);
+        }
+        
+    }
+    
+    public int kthAncestor(Node root, int k, int node)
+    {
+        //Write your code here
+        HashMap<Integer,Integer> map = new HashMap<>();
+        inOrder(root,map,null);
+        
+        
+        int ancestor = node;
+        while(k>0 && ancestor!=-1){
+            ancestor = map.get(ancestor);
+            k--;
+        }
+        return ancestor;
+        
+        
+        
+        
+        //node always oocurs - given
+        //no duplicates are allowed in a binary tree
+        // int index = list.indexOf(node);
+        
+        // while(k > 0){
+        //     if(index==0)return -1;
+        //     index=index/2;
+        //     --k;
+        // }
+        
+        // int result = list.get(index);
+        // return result;
+    }
+}
