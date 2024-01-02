@@ -1,0 +1,38 @@
+//User function Template for Java
+
+
+class Solution {
+    
+    private static List<Long> kadane(long[] a,long n){
+        List<Long> l = new ArrayList<>();
+        long sum = 0 ;
+        for(int i=0 ; i<n ; i++){
+            sum += a[i];
+            if(sum<0){
+                l.add((long)0);
+                sum = 0;
+            }
+            else l.add(sum);
+        }
+        return l;        
+    }
+    
+    public long maxSumWithK(long a[], long n, long k)
+    {
+        List<Long> l = kadane(a,n);
+        long maxSum = Long.MIN_VALUE , sum=  0;
+        for(int i=0 ; i<k ; i++){
+            sum += a[i];
+        }
+        maxSum = Math.max(maxSum,sum);
+        int i=0 , j=(int)k;
+        while(j<n){
+            sum -= a[i];
+            sum += a[j];
+            maxSum = Math.max(maxSum,sum + l.get(i));
+            i++;
+            j++;
+        }
+        return maxSum;
+    }
+}
