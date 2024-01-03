@@ -1,0 +1,20 @@
+
+class Solution {
+    public int smallestSubstring(String S) {
+        int c[] = new int[3];
+        int j=0 , i=0 , n = S.length() , minLen = Integer.MAX_VALUE;
+
+        while(j<n){
+            c[S.charAt(j)-'0']++;
+            while(c[0]>=1 && c[1]>=1 && c[2]>=1){
+                
+                minLen = Math.min(j-i+1,minLen);
+                c[S.charAt(i)-'0']--;
+                i++;
+            }
+            j++;
+        }
+        return (minLen == Integer.MAX_VALUE)?-1:minLen;
+        
+    }
+};
