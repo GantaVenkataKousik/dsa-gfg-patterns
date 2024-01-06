@@ -1,0 +1,32 @@
+
+class Solution {
+    
+    private static long factors(long n){
+        long factorSum = 0;
+        while(n%2 == 0){
+            factorSum++;
+            n /= 2;
+        }
+        
+        for(int i=3;  i<= Math.sqrt(n) ; i++){
+            while(n%i ==0 && n>0){
+                factorSum++;
+                n /= i;
+            }
+        }
+        
+        if(n>2)factorSum++;
+        
+        
+        return factorSum;
+    }
+    
+    public static long sumOfPowers(long a, long b) {
+        long fSum = 0;
+        while(a<=b){
+            fSum += factors(a);
+            a++;
+        }
+        return fSum;
+    }
+}
