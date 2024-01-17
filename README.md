@@ -1,17 +1,22 @@
-🌟 Consistency has been my cornerstone on GeeksforGeeks, showcasing a gallery of solutions that reflect my unwavering dedication and relentless pursuit of problem-solving mastery. 💻🎯
+<h1 align="center">💻 GeeksforGeeks Achievements 🔥🌟💡</h1>
 
-🔥 Through consistent efforts, I've meticulously crafted an archive of solutions, each line of code a testament to my sharpened problem-solving skills. 📜⚙️
-🏋️‍♂️ With each problem solved, I've showcased not just the solution but the thought process behind it - an exhibition of patience, logic, and strategic thinking. 🧠💡
-📈 Over time, this commitment has been the driving force behind honing my problem-solving prowess. My solutions stand tall as a testament to perseverance and an insatiable hunger for learning. 🌟📚
-🚀 Armed with a treasure trove of solutions meticulously solved with utmost interest, patience, and consistency, I embark on this journey of sharing my GeeksforGeeks solutions. 🎉🌐
+<p>Continuously challenging myself, I've achieved remarkable milestones on GeeksforGeeks. Check out my recent accomplishments:</p>
 
-Facing challenges along this road of continual growth:
-❌ Despite unwavering consistency, balancing time between coding sessions occasionally posed challenges, affecting the depth of exploration in certain solutions. 🕒🧩
-❌ Extended coding sessions weren't always feasible, impacting the thoroughness of analysis for some of the more intricate problems tackled. ⌛🔍
+<!-- Replace the placeholders with your actual stats and images -->
+<p align="center">
+    <img src="https://img.shields.io/badge/Coding_Streak-40_days-brightgreen" alt="coding-streak">
+    <img src="https://img.shields.io/badge/Problems_Solved-120+-blue" alt="problems-solved">
+    <img src="https://img.shields.io/badge/Current_Rank-Top_5_percent-orange" alt="current-rank">
+</p>
 
-"Sharing these solutions is not just about showcasing the code; it's a testament to the skills, patience, and consistency I've cultivated on this enriching journey. Let's continue to unlock new levels of problem-solving excellence together!" 🌟🚀
+<h2>🔥🏅 GFG Institute First Rank 📸💻</h2>
+<img  align="center" src="https://i.postimg.cc/Gt9FmfNZ/Screenshot-2024-01-17-225027.png" alt="project-screenshot" width="80%" height="400/">
 
+<h2>🌟 Best Snaps - Mastering Coding Challenges 📸💻</h2>
 
+<!-- You can also add a snapshot or screenshot of your streak for visual representation -->
+<img src="https://i.postimg.cc/v8X2HF1S/Screenshot-2024-01-17-224742.png" alt="project-screenshot" width="50%" height="400/">
 
+<p>Explore snapshots showcasing my problem-solving skills on GeeksforGeeks. I've tackled diverse challenges, ranging from algorithms to data structures, showcasing my dedication and expertise. 🧠💡</p>
 
-
+<p>Feel free to delve into my GeeksforGeeks profile for more coding adventures! 🚀🔍</p>
